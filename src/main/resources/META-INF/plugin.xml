@@ -1,0 +1,74 @@
+<idea-plugin>
+    <id>com.yapi.plugin</id>
+    <name>YApi Doc Generator</name>
+    <vendor email="yapi@plugin.com" url="https://github.com">YApi Plugin</vendor>
+
+    <description><![CDATA[
+        <h2>YApi Doc Generator</h2>
+        <p>Automatically parse and generate YApi API documentation from Spring MVC Controller classes and methods in IntelliJ IDEA.</p>
+        <br>
+        <h3>Features</h3>
+        <ul>
+            <li><b>One-click generation</b> — Right-click on a Controller class or method to parse and upload to YApi</li>
+            <li><b>Comprehensive Spring MVC annotation support</b> — @RequestMapping, @GetMapping, @PostMapping, @PutMapping, @DeleteMapping, @PatchMapping</li>
+            <li><b>Deep DTO parsing</b> — Nested objects, generics, collections, enums, inherited fields, circular reference detection</li>
+            <li><b>Request parameter parsing</b> — @RequestParam, @PathVariable, @RequestHeader, @RequestBody</li>
+            <li><b>Response body parsing</b> — Method return types automatically parsed into response structures</li>
+            <li><b>Smart doc title extraction</b> — Prioritizes @ApiOperation / @Operation annotations</li>
+            <li><b>Multi-server support</b> — Module name auto-matching + manual server selection dialog</li>
+            <li><b>Automatic category management</b> — Creates YApi categories based on URL path segments</li>
+            <li><b>Shortcut</b> — Ctrl+Alt+Y</li>
+        </ul>
+        <br>
+        <h3>How to Use</h3>
+        <ol>
+            <li>Go to <code>Settings → Tools → YApi Doc Generator</code> and configure your YApi server(s)</li>
+            <li>Open a Spring MVC Controller class in your project</li>
+            <li>Right-click on a method or class name → <b>Generate YApi Doc</b></li>
+            <li>The plugin parses annotations, DTOs, and response types, then uploads to YApi automatically</li>
+        </ol>
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <h3>v1.0.0</h3>
+        <ul>
+            <li>Initial release</li>
+            <li>Generate YApi documentation from Spring MVC Controller classes and methods</li>
+            <li>Support for all Spring MVC request mapping annotations</li>
+            <li>Deep recursive DTO field parsing (10 levels max)</li>
+            <li>Generic type parameter resolution</li>
+            <li>Circular reference detection and termination</li>
+            <li>Multi-server configuration with auto-matching</li>
+            <li>Background async upload with progress and notification</li>
+        </ul>
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectConfigurable
+            parentId="tools"
+            instance="com.yapi.plugin.config.YApiSettingsConfigurable"
+            id="com.yapi.plugin.config.YApiSettingsConfigurable"
+            displayName="YApi Doc Generator"
+            nonDefaultProject="false"/>
+        <notificationGroup id="YApi Doc Generator"
+            displayType="BALLOON"/>
+        <projectService
+            serviceImplementation="com.yapi.plugin.config.YApiSettings"/>
+    </extensions>
+
+    <actions>
+        <action
+            id="com.yapi.plugin.action.GenerateYApiDocAction"
+            class="com.yapi.plugin.action.GenerateYApiDocAction"
+            text="Generate YApi Doc"
+            description="Generate YApi documentation for the selected Controller class or method">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt Y"/>
+        </action>
+    </actions>
+</idea-plugin>
