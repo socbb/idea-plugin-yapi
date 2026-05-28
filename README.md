@@ -5,6 +5,8 @@
 [![Java](https://img.shields.io/badge/Java-17-orange)](https://adoptium.net)
 [![Gradle](https://img.shields.io/badge/Gradle-Kotlin_DSL-purple)](https://gradle.org)
 
+[**English**](./README.en.md) | **中文**
+
 > **YApi Doc Generator** 是一款 IntelliJ IDEA 插件，能够**自动从 Spring MVC Controller 类和方法中解析并生成 YApi 接口文档**。
 >
 > 告别手动编写 API 文档的繁琐工作，一键将 Controller 代码转换为结构清晰的 YApi 文档。
@@ -349,3 +351,5 @@ limitations under the License.
 > **提示**：文档中的截图路径为占位符，请将实际截图放置于 `screenshots/` 目录下。
 >
 > 如果您在使用过程中遇到任何问题，欢迎提交 [Issue](https://github.com/your-repo/issues) 或 Pull Request。
+
+[**English**](./README.en.md) | **中文**

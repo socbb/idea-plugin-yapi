@@ -5,6 +5,8 @@
 [![Java](https://img.shields.io/badge/Java-17-orange)](https://adoptium.net)
 [![Gradle](https://img.shields.io/badge/Gradle-Kotlin_DSL-purple)](https://gradle.org)
 
+**English** | [**中文**](./README.md)
+
 > **YApi Doc Generator** is an IntelliJ IDEA plugin that **automatically parses Spring MVC Controller classes and methods to generate YApi API documentation**.
 >
 > Say goodbye to the tedious work of manually writing and managing API documentation. One click converts your Controller code into well-structured YApi documentation.
@@ -350,3 +352,5 @@ limitations under the License.
 > **Tip**: All screenshot paths in this document are placeholders. Please place your actual screenshots in the `screenshots/` directory.
 >
 > If you encounter any issues, feel free to submit an [Issue](https://github.com/your-repo/issues) or Pull Request.
+
+**English** | [**中文**](./README.md)
